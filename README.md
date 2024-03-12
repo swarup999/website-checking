@@ -3,7 +3,7 @@ If you have the list of domain or subdomain name you can check which are working
 This is a python script which will add https into the each and every domain in the list and check the response.
 
 Lets assusme you have the format domains.txt with the domain names list.
-/n•	microsoft.com
+<br>•	microsoft.com
 •	test.com
 •	google.com
 •	test.domain.com
