@@ -15,11 +15,12 @@ Download the python script and domain list file & run it in the below format.
 Results:
 
 Working websites:
-https://microsoft.com
-https://google.com
-https://test.domain.com
+•	https://microsoft.com
+•	https://google.com
+•	https://test.domain.com
 
 Not working websites:
-https://test.com
+•	https://test.com
+
 
 
