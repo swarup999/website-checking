@@ -1,4 +1,6 @@
+import sys
 import requests
+from datetime import datetime
 
 def check_website_status(domain_list):
     working_websites = []
@@ -18,7 +20,11 @@ def check_website_status(domain_list):
     return working_websites, not_working_websites
 
 def save_results(working_websites, not_working_websites):
-    with open("website-status.txt", "w") as file:     # File will be saved as website-status.txt
+    now = datetime.now()
+    timestamp = now.strftime("%Y-%m-%d_%H-%M-%S")
+    filename = f"website-status_{timestamp}.txt"
+    
+    with open(filename, "w") as file:
         file.write("Working websites:\n")
         for website in working_websites:
             file.write(website + "\n")
@@ -27,15 +33,21 @@ def save_results(working_websites, not_working_websites):
         for website in not_working_websites:
             file.write(website + "\n")
 
+    return filename
+
 def main():
-    file_path = "/home/path/websites.txt"  # Update with the path to your .txt file
+    if len(sys.argv) != 2:
+        print("Usage: python script.py <domain_list_file>")
+        return
+
+    file_path = sys.argv[1]
     with open(file_path, "r") as file:
         domain_list = file.readlines()
 
     working_websites, not_working_websites = check_website_status(domain_list)
 
-    save_results(working_websites, not_working_websites)
-    print("Results saved to website-status.txt")
+    filename = save_results(working_websites, not_working_websites)
+    print(f"Results saved to {filename}")
 
 if __name__ == "__main__":
     main()
