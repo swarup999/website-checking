@@ -9,7 +9,7 @@ Lets assusme you have the format domains.txt with the domain names list.
 <br>•	test.domain.com
 
 Download the python script and domain list file & run it in the below format.
-=> python website-check.py domains.txt
+<br>=> python website-check.py domains.txt
 
 
 Results:
